@@ -4,8 +4,10 @@ const initialState = {
   products: [],
   productsByCategory: {},
   product: null,
-  searchResults: [],
   status: "idle",
+  searchStatus: "idle",
+  searchResults: [],
+  searchSuggestions: [],
   error: "",
 };
 
@@ -63,6 +65,15 @@ export const getProductsByCategory = createAsyncThunk(
 
 export const searchProducts = createAsyncThunk(
   "products/searchProducts",
+  async function (query) {
+    const res = await fetch(`https://dummyjson.com/products/search?q=${query}`);
+    const data = await res.json();
+    return data.products;
+  },
+);
+
+export const suggestProducts = createAsyncThunk(
+  "products/suggestionsProducts",
   async function (query) {
     const res = await fetch(`https://dummyjson.com/products/search?q=${query}`);
     const data = await res.json();
@@ -133,6 +144,18 @@ const productsSlice = createSlice({
       })
       .addCase(searchProducts.rejected, (state) => {
         state.status = "error";
+        state.error = "Failed to search products. Please try again!";
+      })
+      // suggestProducts
+      .addCase(suggestProducts.pending, (state) => {
+        state.searchStatus = "loading";
+      })
+      .addCase(suggestProducts.fulfilled, (state, action) => {
+        state.searchStatus = "idle";
+        state.suggestionsProducts = action.payload;
+      })
+      .addCase(suggestProducts.rejected, (state) => {
+        state.searchStatus = "error";
         state.error = "Failed to search products. Please try again!";
       }),
 });

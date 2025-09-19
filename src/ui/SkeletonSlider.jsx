@@ -9,7 +9,6 @@ import SkeletonCard from "./SkeletonCard";
 function SkeletonSlider() {
   return (
     <div className="relative pt-12 pb-0">
-      {/* ===== Title Skeleton ===== */}
       <div className="mb-8 text-center">
         <Skeleton height={40} width={250} className="mx-auto" />
         <Skeleton
@@ -19,7 +18,6 @@ function SkeletonSlider() {
         />
       </div>
 
-      {/* ===== Slider Skeleton ===== */}
       <div className="relative px-4 py-8">
         <Swiper
           className="drop-shadow-xl"

@@ -84,12 +84,9 @@ export default function App() {
               </ul>
 
               <div className="mt-12">
-                <a
-                  href="/"
-                  className="rounded-full bg-blue-500 px-8 py-3.5 font-semibold text-white shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg"
-                >
+                <button className="rounded-full bg-blue-500 px-8 py-3.5 font-semibold text-white shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg">
                   Shop Now
-                </a>
+                </button>
               </div>
             </div>
 

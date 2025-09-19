@@ -42,7 +42,12 @@ function ProductItem({ product }) {
         </div>
       </div>
 
-      <button className="mt-4 w-full cursor-pointer rounded-xl bg-blue-600 py-2 font-medium text-white transition hover:bg-blue-700">
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+        }}
+        className="mt-4 w-full cursor-pointer rounded-xl bg-blue-600 py-2 font-medium text-white transition hover:bg-blue-700"
+      >
         Add to cart
       </button>
     </Link>

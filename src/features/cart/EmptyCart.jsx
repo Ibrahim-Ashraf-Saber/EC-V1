@@ -1,23 +1,23 @@
 import { Link } from "react-router-dom";
-import notFound from "../data/imgs/notFound.svg";
+import emptyCartImg from "../../data/imgs/emptyCart.svg";
 import { HiArrowCircleLeft } from "react-icons/hi";
 
-function PageNotFound() {
+function EmptyCart() {
   return (
     <main className="flex flex-col items-center justify-center">
       <img
-        src={notFound}
-        alt="Not Found"
+        src={emptyCartImg}
+        alt="Empty Cart"
         loading="lazy"
         className="w-3/4 max-w-sm drop-shadow-md"
       />
 
       <section className="mt-6 space-y-3 text-center">
         <h1 className="text-3xl font-extrabold tracking-wide text-blue-600 uppercase md:text-4xl">
-          Page Not Found
+          Your Cart is Empty
         </h1>
         <p className="mx-auto text-sm font-medium text-gray-500 md:text-base">
-          Oops! The page you are looking for does not exist.
+          Start exploring our products and find something you love.
         </p>
       </section>
 
@@ -32,4 +32,4 @@ function PageNotFound() {
   );
 }
 
-export default PageNotFound;
+export default EmptyCart;

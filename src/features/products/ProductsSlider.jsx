@@ -35,12 +35,26 @@ function ProductsSlider({ title, products }) {
       <div className="relative px-4 py-8">
         <Swiper
           className="drop-shadow-xl"
-          slidesPerView={4}
+          slidesPerView={1}
           spaceBetween={20}
           loop={true}
           navigation={{
             nextEl: `.${nextBtnClass}`,
             prevEl: `.${prevBtnClass}`,
+          }}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
+            640: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+            1280: {
+              slidesPerView: 4,
+            },
           }}
           modules={[Navigation]}
         >

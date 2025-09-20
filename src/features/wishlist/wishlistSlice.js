@@ -31,5 +31,5 @@ export const getWishlist = (state) => state.wishlist.wishlistItems;
 export const getTotalWishlistQuantity = (state) =>
   state.wishlist.wishlistItems.length;
 
-export const isProductInWishlist = (state, id) =>
+export const isProductInWishlist = (id) => (state) =>
   !!state.wishlist.wishlistItems.find((item) => item.id === id);

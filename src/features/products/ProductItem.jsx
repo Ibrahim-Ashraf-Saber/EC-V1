@@ -13,10 +13,8 @@ function ProductItem({ product }) {
     product;
 
   const dispatch = useDispatch();
-  const inWishlist = useSelector((state) =>
-    isProductInWishlist(state, product.id),
-  );
   const currentQuantity = useSelector(getCurrentQuantityById(product.id));
+  const inWishlist = useSelector(isProductInWishlist(product.id));
 
   function handleAddToWishlist(e) {
     e.preventDefault();

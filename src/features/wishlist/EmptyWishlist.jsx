@@ -1,5 +1,5 @@
-import { HiArrowCircleLeft } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { HiArrowCircleLeft } from "react-icons/hi";
 import emptyWishlistImg from "../../data/imgs/emptyWishlist.svg";
 
 function EmptyWishlist() {
@@ -13,10 +13,10 @@ function EmptyWishlist() {
       />
 
       <section className="mt-6 space-y-3 text-center">
-        <h1 className="text-3xl font-extrabold tracking-wide text-blue-600 uppercase md:text-4xl">
+        <h1 className="text-4xl font-extrabold tracking-wide text-blue-600 uppercase">
           Your Wishlist is Empty
         </h1>
-        <p className="mx-auto text-sm font-medium text-gray-500 md:text-base">
+        <p className="mx-auto text-base font-medium text-gray-500">
           Start exploring and add your favorites!
         </p>
       </section>

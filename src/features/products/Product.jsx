@@ -16,10 +16,8 @@ import {
 
 function ProductDetails({ product }) {
   const dispatch = useDispatch();
-  const inWishlist = useSelector((state) =>
-    isProductInWishlist(state, product.id),
-  );
   const currentQuantity = useSelector(getCurrentQuantityById(product.id));
+  const inWishlist = useSelector(isProductInWishlist(product.id));
 
   return (
     <div className="px-4 py-6 md:px-12 lg:px-24">

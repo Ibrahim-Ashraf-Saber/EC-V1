@@ -22,7 +22,10 @@ function App() {
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/products/:productId" element={<ProductDetails />} />
-            <Route path="/categroy/:category" element={<CategoryDetails />} />
+            <Route
+              path="/products/category/:category"
+              element={<CategoryDetails />}
+            />
             <Route path="/search" element={<SearchProducts />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />

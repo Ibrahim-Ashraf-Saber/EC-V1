@@ -59,9 +59,9 @@ export const getProductById = createAsyncThunk(
 // getProductsByCategory
 export const getProductsByCategory = createAsyncThunk(
   "products/getProductsByCategory",
-  async function (category) {
+  async function ({ category, sortBy = "price", order = "asc" }) {
     const res = await fetch(
-      `https://dummyjson.com/products/category/${category}`,
+      `https://dummyjson.com/products/category/${category}?sortBy=${sortBy}&order=${order}`,
     );
     const data = await res.json();
     return data.products;

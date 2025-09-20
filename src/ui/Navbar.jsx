@@ -27,7 +27,7 @@ function Navbar() {
           <HiOutlineSearch className="text-white" size={20} />
         </button>
         {show && (
-          <div className="absolute top-full left-0 flex w-full items-center justify-center border-y border-gray-200 bg-white py-5">
+          <div className="absolute top-full left-0 flex w-full items-center justify-center border-y border-gray-200 bg-white py-5 dark:border-gray-700 dark:bg-gray-900">
             <SearchBox />
           </div>
         )}

@@ -19,9 +19,9 @@ function SearchBox() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!query.length) return;
+    if (!query.trim().length) return;
 
-    navigate(`/search?q=${query}`);
+    navigate(`/search?q=${encodeURIComponent(query.trim())}`);
   }
 
   const handleChange = (e) => {

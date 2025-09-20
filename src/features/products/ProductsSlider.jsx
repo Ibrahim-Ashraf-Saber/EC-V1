@@ -7,8 +7,8 @@ import ProductItem from "./ProductItem";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 
 function ProductsSlider({ title, products }) {
-  const prevBtnClass = `custom-prev-${title}`;
-  const nextBtnClass = `custom-next-${title}`;
+  const prevBtnClass = `custom-prev-${title.replace(" ", "-")}`;
+  const nextBtnClass = `custom-next-${title.replace(" ", "-")}`;
 
   return (
     <div className="relative pt-12 pb-0">
@@ -37,7 +37,7 @@ function ProductsSlider({ title, products }) {
             1280: { slidesPerView: 4 },
           }}
         >
-          {products.map((product) => (
+          {(Array.isArray(products) ? products : []).map((product) => (
             <SwiperSlide key={product.id}>
               <ProductItem product={product} />
             </SwiperSlide>

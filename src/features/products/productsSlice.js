@@ -3,9 +3,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = {
   products: [],
   productsByCategory: {},
-  product: null,
+  product: {},
   status: "idle",
   searchStatus: "idle",
+  pByCategoryStatus: "idle",
   searchResults: [],
   searchSuggestions: [],
   error: "",
@@ -77,6 +78,7 @@ export const suggestProducts = createAsyncThunk(
   async function (query) {
     const res = await fetch(`https://dummyjson.com/products/search?q=${query}`);
     const data = await res.json();
+
     return data.products;
   },
 );
@@ -124,14 +126,14 @@ const productsSlice = createSlice({
       })
       // getProductsByCategory
       .addCase(getProductsByCategory.pending, (state) => {
-        state.status = "loading";
+        state.pByCategoryStatus = "loading";
       })
       .addCase(getProductsByCategory.fulfilled, (state, action) => {
-        state.status = "idle";
-        state.products = action.payload;
+        state.pByCategoryStatus = "idle";
+        state.productsByCategory = action.payload;
       })
       .addCase(getProductsByCategory.rejected, (state) => {
-        state.status = "error";
+        state.pByCategoryStatus = "error";
         state.error = "Failed to fetch products by category. Please try again!";
       })
       // searchProducts

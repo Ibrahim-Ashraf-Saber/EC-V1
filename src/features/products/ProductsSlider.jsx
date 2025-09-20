@@ -13,15 +13,24 @@ function ProductsSlider({ title, products }) {
 
   return (
     <div className="relative pt-12 pb-0">
-      <Link
-        to={`/products/category/${title}`}
-        className="group mb-2 block text-center transition-all hover:scale-105"
-      >
-        <h2 className="mb-4 text-4xl font-bold text-gray-800 uppercase transition-colors duration-300 group-hover:text-blue-600 dark:text-gray-100 dark:group-hover:text-blue-400">
-          {title.replace("-", " ")}
-        </h2>
-        <div className="mx-auto h-1 w-24 rounded-full bg-blue-500 transition-all group-hover:w-32 group-hover:bg-blue-600 dark:bg-blue-400 dark:group-hover:bg-blue-300"></div>
-      </Link>
+      {title === "Related Products" ? (
+        <div className="group mb-2 block text-center">
+          <h2 className="mb-4 text-4xl font-bold text-gray-800 uppercase dark:text-gray-100">
+            {title.replace("-", " ")}
+          </h2>
+          <div className="mx-auto h-1 w-24 rounded-full bg-blue-500 dark:bg-blue-400"></div>
+        </div>
+      ) : (
+        <Link
+          to={`/products/category/${title}`}
+          className="group mb-2 block text-center transition-all hover:scale-105"
+        >
+          <h2 className="mb-4 text-4xl font-bold text-gray-800 uppercase transition-colors duration-300 group-hover:text-blue-600 dark:text-gray-100 dark:group-hover:text-blue-400">
+            {title.replace("-", " ")}
+          </h2>
+          <div className="mx-auto h-1 w-24 rounded-full bg-blue-500 transition-all group-hover:w-32 group-hover:bg-blue-600 dark:bg-blue-400 dark:group-hover:bg-blue-300"></div>
+        </Link>
+      )}
 
       <div className="relative px-4 py-8">
         <Swiper

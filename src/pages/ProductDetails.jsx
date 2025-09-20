@@ -25,7 +25,7 @@ function ProductDetails() {
 
   useEffect(() => {
     if (product?.category) {
-      dispatch(getProductsByCategory(product.category));
+      dispatch(getProductsByCategory({ category: product.category }));
     }
   }, [product.category, dispatch]);
 

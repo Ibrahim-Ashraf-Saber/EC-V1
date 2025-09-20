@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination, Autoplay } from "swiper/modules";
 import {
   FaShippingFast,
   FaStar,
@@ -54,12 +54,11 @@ export default function App() {
       pagination={{ dynamicBullets: true }}
       autoplay={{
         delay: 3000,
-        disableOnInteraction: false,
       }}
       modules={[Pagination, Autoplay]}
     >
       {slides.map((slide, i) => (
-        <SwiperSlide className="" key={i}>
+        <SwiperSlide key={i}>
           <div className="relative flex h-[420px] items-center rounded-3xl bg-white p-10">
             <div className="flex w-1/2 flex-col justify-center pr-8">
               <h2 className="text-4xl font-extrabold text-gray-800">

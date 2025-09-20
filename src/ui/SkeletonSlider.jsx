@@ -1,10 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import Skeleton from "react-loading-skeleton";
+import SkeletonCard from "./SkeletonCard";
 import "swiper/css";
 import "swiper/css/navigation";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import SkeletonCard from "./SkeletonCard";
 
 function SkeletonSlider() {
   return (
@@ -21,18 +21,12 @@ function SkeletonSlider() {
       <div className="relative px-4 py-8">
         <Swiper
           className="drop-shadow-xl"
-          slidesPerView={1}
+          slidesPerView={4}
           spaceBetween={20}
           loop={true}
           modules={[Navigation]}
-          breakpoints={{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-            1280: { slidesPerView: 4 },
-          }}
         >
-          {[...Array(4)].map((_, i) => (
+          {Array.from({ length: 4 }, (_, i) => (
             <SwiperSlide key={i}>
               <SkeletonCard />
             </SwiperSlide>

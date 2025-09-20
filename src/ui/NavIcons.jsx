@@ -1,8 +1,8 @@
-import { HiOutlineShoppingCart, HiOutlineHeart } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { getTotalCartQuantity } from "../features/cart/cartSlice";
 import { getTotalWishlistQuantity } from "../features/wishlist/wishlistSlice";
-import { useSelector } from "react-redux";
+import { HiOutlineShoppingCart, HiOutlineHeart } from "react-icons/hi";
 
 function NavIcons() {
   const cartQuantity = useSelector(getTotalCartQuantity);

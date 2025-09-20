@@ -1,5 +1,5 @@
-import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { MdOutlineShoppingCart } from "react-icons/md";
 
 function Logo() {
   return (

@@ -52,7 +52,7 @@ function SearchBox() {
     <form
       ref={wrapperRef}
       onSubmit={handleSubmit}
-      className="relative flex w-full items-center rounded-full bg-white shadow-sm ring-1 ring-gray-200 transition-all focus-within:ring-2 focus-within:ring-blue-400 md:w-auto dark:bg-gray-800 dark:ring-gray-700 dark:focus-within:ring-blue-500"
+      className="relative flex w-xs items-center rounded-full bg-white shadow-sm ring-1 ring-gray-200 transition-all focus-within:ring-2 focus-within:ring-blue-400 md:flex md:w-auto dark:bg-gray-800 dark:ring-gray-700 dark:focus-within:ring-blue-500"
     >
       <input
         type="text"

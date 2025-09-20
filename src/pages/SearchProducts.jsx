@@ -1,6 +1,6 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 import { searchProducts } from "../features/products/productsSlice";
 import ProductItem from "../features/products/ProductItem";
 import SkeltonSlider from "../ui/SkeletonSlider";

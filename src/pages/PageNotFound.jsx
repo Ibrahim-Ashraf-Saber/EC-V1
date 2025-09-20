@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import notFound from "../data/imgs/notFound.svg";
 import { HiArrowCircleLeft } from "react-icons/hi";
+import notFound from "../data/imgs/notFound.svg";
 
 function PageNotFound() {
   return (

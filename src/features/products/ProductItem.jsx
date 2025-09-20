@@ -101,7 +101,7 @@ function ProductItem({ product }) {
         className={`mt-4 w-full rounded-xl py-2 font-medium text-white shadow-md transition-all duration-200 ${
           currentQuantity > 0
             ? "cursor-not-allowed bg-gray-400"
-            : "bg-blue-600 hover:bg-blue-700"
+            : "cursor-pointer bg-blue-600 hover:bg-blue-700"
         } `}
       >
         {currentQuantity > 0 ? "In Cart" : "Add to Cart"}

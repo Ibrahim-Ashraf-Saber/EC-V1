@@ -13,10 +13,10 @@ function ProductsSlider({ title, products }) {
   return (
     <div className="relative pt-12 pb-0">
       <div className="mb-2 text-center">
-        <h2 className="mb-4 text-4xl font-bold text-gray-800 uppercase">
+        <h2 className="mb-4 text-4xl font-bold text-gray-800 uppercase dark:text-gray-100">
           {title.replace("-", " ")}
         </h2>
-        <div className="mx-auto h-1 w-24 rounded-full bg-blue-500"></div>
+        <div className="mx-auto h-1 w-24 rounded-full bg-blue-500 dark:bg-blue-400"></div>
       </div>
 
       <div className="relative px-4 py-8">
@@ -41,12 +41,12 @@ function ProductsSlider({ title, products }) {
 
         <div className="mt-6 flex items-center justify-center gap-3">
           <button
-            className={`${prevBtnClass} flex cursor-pointer items-center justify-center rounded-full bg-blue-600 p-3 text-white shadow-xl transition-colors hover:bg-blue-700`}
+            className={`${prevBtnClass} flex cursor-pointer items-center justify-center rounded-full bg-blue-600 p-3 text-white shadow-xl transition-colors hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600`}
           >
             <HiOutlineChevronLeft size={20} />
           </button>
           <button
-            className={`${nextBtnClass} flex cursor-pointer items-center justify-center rounded-full bg-blue-600 p-3 text-white shadow-xl transition-colors hover:bg-blue-700`}
+            className={`${nextBtnClass} flex cursor-pointer items-center justify-center rounded-full bg-blue-600 p-3 text-white shadow-xl transition-colors hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600`}
           >
             <HiOutlineChevronRight size={20} />
           </button>

@@ -34,7 +34,7 @@ function CartItem({ item }) {
   return (
     <div
       key={item.id}
-      className="flex flex-row items-center justify-between gap-4 rounded-xl bg-white p-4 shadow-md"
+      className="flex flex-row items-center justify-between gap-4 rounded-xl bg-white p-4 shadow-md dark:bg-gray-800"
     >
       <img
         src={item.images[0]}
@@ -44,20 +44,26 @@ function CartItem({ item }) {
       />
 
       <div className="ml-6 flex flex-1 flex-col gap-2">
-        <h2 className="text-lg font-semibold text-gray-800">{item.title}</h2>
-        <p className="font-medium text-gray-500">${item.price}</p>
+        <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+          {item.title}
+        </h2>
+        <p className="font-medium text-gray-500 dark:text-gray-400">
+          ${item.price}
+        </p>
 
         <div className="mt-2 flex items-center gap-2">
           <button
             onClick={() => dispatch(decreaseQuantity(item.id))}
-            className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-gray-700 transition hover:bg-gray-300 hover:text-gray-900"
+            className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-gray-700 transition hover:bg-gray-300 hover:text-gray-900 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
           >
             -
           </button>
-          <span className="w-6 text-center font-medium">{item.quantity}</span>
+          <span className="w-6 text-center font-medium dark:text-gray-200">
+            {item.quantity}
+          </span>
           <button
             onClick={() => dispatch(increaseQuantity(item.id))}
-            className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-gray-700 transition hover:bg-gray-300 hover:text-gray-900"
+            className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-gray-700 transition hover:bg-gray-300 hover:text-gray-900 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
           >
             +
           </button>
@@ -66,7 +72,7 @@ function CartItem({ item }) {
 
       <button
         onClick={handleRemoveFromCart}
-        className="mt-2 flex cursor-pointer items-center justify-center rounded-full p-2 text-red-500 transition hover:bg-red-100 hover:text-red-700 md:mt-0 md:ml-4"
+        className="mt-2 flex cursor-pointer items-center justify-center rounded-full p-2 text-red-500 transition hover:bg-red-100 hover:text-red-700 md:mt-0 md:ml-4 dark:hover:bg-red-900 dark:hover:text-red-400"
       >
         <HiOutlineTrash size={20} />
       </button>

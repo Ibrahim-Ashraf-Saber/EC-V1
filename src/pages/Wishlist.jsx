@@ -11,11 +11,11 @@ function Wishlist() {
     <div>
       <div>
         <div className="mb-8 text-center">
-          <h2 className="mb-2 text-4xl font-bold text-gray-800">
+          <h2 className="mb-2 text-4xl font-bold text-gray-800 dark:text-gray-100">
             Your Wishlist
           </h2>
           <div className="mx-auto h-1 w-24 rounded-full bg-blue-500"></div>
-          <p className="mt-2 text-gray-500">
+          <p className="mt-2 text-gray-500 dark:text-gray-400">
             Keep track of what you love and purchase with ease
           </p>
         </div>

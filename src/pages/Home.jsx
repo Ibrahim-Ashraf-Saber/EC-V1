@@ -16,8 +16,6 @@ function Home() {
     dispatch(getAllProductsByCategory());
   }, [dispatch]);
 
-  console.log(isLoading);
-
   return (
     <div>
       <LandingSlider />

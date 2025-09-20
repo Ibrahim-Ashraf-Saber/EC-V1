@@ -9,11 +9,14 @@ function Logo() {
       </div>
 
       <div className="flex flex-col -space-y-2">
-        <p className="text-2xl font-extrabold tracking-tight text-gray-800">
+        <p className="text-2xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100">
           EC
         </p>
-        <p className="text-sm font-medium tracking-wide text-gray-600">
-          <span className="font-semibold text-blue-500">Online</span> Store
+        <p className="text-sm font-medium tracking-wide text-gray-600 dark:text-gray-400">
+          <span className="font-semibold text-blue-500 dark:text-blue-400">
+            Online
+          </span>{" "}
+          Store
         </p>
       </div>
     </Link>

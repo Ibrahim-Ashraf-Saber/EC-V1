@@ -24,7 +24,7 @@ function SearchProducts() {
   return (
     <div>
       <div className="mb-2 text-center">
-        <h2 className="mb-4 text-4xl font-bold text-gray-800">
+        <h2 className="mb-4 text-4xl font-bold text-gray-800 dark:text-gray-100">
           Results for: {query}
         </h2>
         <div className="mx-auto h-1 w-24 rounded-full bg-blue-500"></div>

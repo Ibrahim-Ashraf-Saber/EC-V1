@@ -59,22 +59,22 @@ export default function App() {
     >
       {slides.map((slide, i) => (
         <SwiperSlide key={i}>
-          <div className="relative flex h-[420px] items-center rounded-3xl bg-white p-10">
+          <div className="relative flex h-[420px] items-center rounded-3xl bg-white p-10 dark:bg-gray-900">
             <div className="flex w-1/2 flex-col justify-center pr-8">
-              <h2 className="text-4xl font-extrabold text-gray-800">
+              <h2 className="text-4xl font-extrabold text-gray-800 dark:text-gray-100">
                 {slide.title}
               </h2>
-              <p className="mt-4 text-lg leading-relaxed text-gray-700">
+              <p className="mt-4 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                 {slide.description}
               </p>
 
-              <ul className="mt-8 space-y-4 text-gray-700">
+              <ul className="mt-8 space-y-4 text-gray-700 dark:text-gray-300">
                 {slide.features.map((feature, index) => (
                   <li
                     key={index}
                     className="flex items-center gap-4 text-lg font-medium"
                   >
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 shadow-sm">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 shadow-sm dark:bg-blue-400/10 dark:text-blue-400">
                       {feature.icon}
                     </span>
                     {feature.text}
@@ -83,7 +83,7 @@ export default function App() {
               </ul>
 
               <div className="mt-12">
-                <button className="rounded-full bg-blue-500 px-8 py-3.5 font-semibold text-white shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+                <button className="rounded-full bg-blue-500 px-8 py-3.5 font-semibold text-white shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg dark:bg-blue-600 dark:hover:bg-blue-700">
                   Shop Now
                 </button>
               </div>

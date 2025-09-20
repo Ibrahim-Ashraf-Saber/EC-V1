@@ -39,9 +39,11 @@ function Cart() {
   return (
     <div className="px-24 py-6">
       <div className="mb-8 text-center">
-        <h2 className="mb-2 text-4xl font-bold text-gray-800">Your Cart</h2>
+        <h2 className="mb-2 text-4xl font-bold text-gray-800 dark:text-gray-100">
+          Your Cart
+        </h2>
         <div className="mx-auto h-1 w-24 rounded-full bg-blue-500"></div>
-        <p className="mt-2 text-gray-500">
+        <p className="mt-2 text-gray-500 dark:text-gray-400">
           Review your selected products before checkout
         </p>
       </div>
@@ -52,9 +54,9 @@ function Cart() {
         ))}
       </div>
 
-      <div className="mt-8 flex w-full flex-col items-center justify-center gap-4 border-t border-gray-300 pt-6">
+      <div className="mt-8 flex w-full flex-col items-center justify-center gap-4 border-t border-gray-300 pt-6 dark:border-gray-700">
         <div className="flex w-full max-w-md items-center justify-between text-xl font-bold">
-          <span>Total</span>
+          <span className="text-gray-800 dark:text-gray-200">Total</span>
           <span className="text-green-500">${totalPrice.toFixed(2)}</span>
         </div>
         <div className="flex w-2xl items-center gap-7">

@@ -43,9 +43,9 @@ function ProductItem({ product }) {
   return (
     <Link
       to={`/products/${id}`}
-      className="group block max-w-xs rounded-2xl bg-white p-4"
+      className="group block max-w-xs rounded-2xl bg-white p-4 dark:bg-gray-800"
     >
-      <div className="relative rounded-2xl border border-gray-200 bg-gray-50 p-2">
+      <div className="relative rounded-2xl border border-gray-200 bg-gray-50 p-2 dark:border-gray-700 dark:bg-gray-900">
         <img
           src={images[0]}
           alt={title}
@@ -56,7 +56,7 @@ function ProductItem({ product }) {
         {inWishlist ? (
           <button
             onClick={handleRemoveFromWishlist}
-            className="absolute top-2 right-2 flex items-center justify-center rounded-full bg-white p-2 shadow-md transition-transform duration-200 hover:scale-110 hover:bg-pink-100"
+            className="absolute top-2 right-2 flex items-center justify-center rounded-full bg-white p-2 shadow-md transition-transform duration-200 hover:scale-110 hover:bg-pink-100 dark:bg-gray-700 dark:hover:bg-gray-600"
           >
             <HiOutlineHeart
               size={22}
@@ -66,11 +66,11 @@ function ProductItem({ product }) {
         ) : (
           <button
             onClick={handleAddToWishlist}
-            className="absolute top-2 right-2 flex items-center justify-center rounded-full bg-white p-2 shadow-md transition-transform duration-200 hover:scale-110 hover:bg-pink-100"
+            className="absolute top-2 right-2 flex items-center justify-center rounded-full bg-white p-2 shadow-md transition-transform duration-200 hover:scale-110 hover:bg-pink-100 dark:bg-gray-700 dark:hover:bg-gray-600"
           >
             <HiOutlineHeart
               size={22}
-              className="text-gray-400 transition-colors duration-200 hover:text-pink-500"
+              className="text-gray-400 transition-colors duration-200 hover:text-pink-500 dark:text-gray-300"
             />
           </button>
         )}
@@ -83,16 +83,20 @@ function ProductItem({ product }) {
       </div>
 
       <div className="mt-3 space-y-2">
-        <h3 className="line-clamp-1 text-lg font-semibold text-gray-800">
+        <h3 className="line-clamp-1 text-lg font-semibold text-gray-800 dark:text-gray-100">
           {title}
         </h3>
-        <p className="line-clamp-2 text-sm text-gray-500">{description}</p>
+        <p className="line-clamp-2 text-sm text-gray-500 dark:text-gray-400">
+          {description}
+        </p>
 
         <div className="flex items-center justify-between">
-          <span className="text-sm font-medium text-yellow-600">
+          <span className="text-sm font-medium text-yellow-600 dark:text-yellow-500">
             ⭐ {Number(rating).toFixed(1)}
           </span>
-          <span className="text-lg font-bold text-green-600">${price}</span>
+          <span className="text-lg font-bold text-green-600 dark:text-green-500">
+            ${price}
+          </span>
         </div>
       </div>
 
@@ -101,8 +105,8 @@ function ProductItem({ product }) {
         disabled={currentQuantity > 0}
         className={`mt-4 w-full rounded-xl py-2 font-medium text-white shadow-md transition-all duration-200 ${
           currentQuantity > 0
-            ? "cursor-not-allowed bg-gray-400"
-            : "cursor-pointer bg-blue-600 hover:bg-blue-700"
+            ? "cursor-not-allowed bg-gray-400 dark:bg-gray-600"
+            : "cursor-pointer bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
         } `}
       >
         {currentQuantity > 0 ? "In Cart" : "Add to Cart"}

@@ -61,7 +61,9 @@ function ProductDetails({ product }) {
   return (
     <div className="px-24 py-6">
       <div className="mb-8 text-center">
-        <h1 className="text-4xl font-bold text-gray-800">{product.title}</h1>
+        <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100">
+          {product.title}
+        </h1>
         <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-blue-500"></div>
       </div>
 
@@ -71,12 +73,14 @@ function ProductDetails({ product }) {
         </div>
 
         <div className="relative flex flex-1 flex-col gap-4">
-          <p className="text-gray-700">{product.description}</p>
+          <p className="text-gray-700 dark:text-gray-300">
+            {product.description}
+          </p>
 
-          <div className="flex items-center gap-4 text-2xl font-bold text-green-600">
+          <div className="flex items-center gap-4 text-2xl font-bold text-green-600 dark:text-green-400">
             ${priceAfterDiscount}
             {Number(product.discountPercentage) > 0 && (
-              <span className="text-xl text-gray-400 line-through">
+              <span className="text-xl text-gray-400 line-through dark:text-gray-500">
                 ${product.price}
               </span>
             )}
@@ -87,16 +91,16 @@ function ProductDetails({ product }) {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => dispatch(decreaseQuantity(product.id))}
-                  className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-gray-700 transition hover:bg-gray-300"
+                  className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-gray-700 transition hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
                 >
                   -
                 </button>
-                <span className="w-6 text-center font-medium">
+                <span className="w-6 text-center font-medium text-gray-800 dark:text-gray-100">
                   {currentQuantity}
                 </span>
                 <button
                   onClick={() => dispatch(increaseQuantity(product.id))}
-                  className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-gray-700 transition hover:bg-gray-300"
+                  className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-gray-700 transition hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
                 >
                   +
                 </button>
@@ -106,7 +110,7 @@ function ProductDetails({ product }) {
             {inWishlist ? (
               <button
                 onClick={() => dispatch(removeFromWishlist(product.id))}
-                className="top-2 right-2 flex cursor-pointer items-center justify-center rounded-full bg-white p-2 shadow-md transition-transform duration-200 hover:scale-110 hover:bg-pink-100"
+                className="top-2 right-2 flex cursor-pointer items-center justify-center rounded-full bg-white p-2 shadow-md transition-transform duration-200 hover:scale-110 hover:bg-pink-100 dark:bg-gray-800 dark:hover:bg-pink-200"
               >
                 <HiOutlineHeart
                   size={22}
@@ -116,11 +120,11 @@ function ProductDetails({ product }) {
             ) : (
               <button
                 onClick={() => dispatch(addToWishlist(product))}
-                className="top-2 right-2 flex cursor-pointer items-center justify-center rounded-full bg-white p-2 shadow-md transition-transform duration-200 hover:scale-110 hover:bg-pink-100"
+                className="top-2 right-2 flex cursor-pointer items-center justify-center rounded-full bg-white p-2 shadow-md transition-transform duration-200 hover:scale-110 hover:bg-pink-100 dark:bg-gray-800 dark:hover:bg-pink-200"
               >
                 <HiOutlineHeart
                   size={22}
-                  className="text-gray-400 transition-colors duration-200 hover:text-pink-500"
+                  className="text-gray-400 transition-colors duration-200 hover:text-pink-500 dark:text-gray-300"
                 />
               </button>
             )}
@@ -132,7 +136,7 @@ function ProductDetails({ product }) {
               disabled={currentQuantity > 0}
               className={`w-full cursor-pointer rounded-xl py-3 font-medium text-white shadow-md transition-all duration-200 ${
                 currentQuantity > 0
-                  ? "cursor-not-allowed bg-gray-400"
+                  ? "cursor-not-allowed bg-gray-400 dark:bg-gray-600"
                   : "bg-blue-600 hover:bg-blue-700"
               }`}
             >

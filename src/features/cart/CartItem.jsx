@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { HiOutlineTrash } from "react-icons/hi";
+import Swal from "sweetalert2";
 import {
   decreaseQuantity,
   increaseQuantity,
@@ -10,7 +11,24 @@ function CartItem({ item }) {
   const dispatch = useDispatch();
 
   function handleRemoveFromCart() {
-    dispatch(removeFromCart(item.id));
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(removeFromCart(item.id));
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your product has been deleted.",
+          icon: "success",
+        });
+      }
+    });
   }
 
   return (

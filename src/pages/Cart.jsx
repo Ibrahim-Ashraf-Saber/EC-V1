@@ -6,6 +6,7 @@ import {
 } from "../features/cart/cartSlice";
 import CartItem from "../features/cart/CartItem";
 import EmptyCart from "../features/cart/EmptyCart";
+import Swal from "sweetalert2";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -13,7 +14,24 @@ function Cart() {
   const totalPrice = useSelector(getTotalCartPrice);
 
   function hanldeClearCart() {
-    dispatch(clearCart());
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(clearCart());
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your cart has been deleted.",
+          icon: "success",
+        });
+      }
+    });
   }
 
   if (cartItems.length === 0) return <EmptyCart />;

@@ -1,6 +1,7 @@
-import { HiOutlineHeart } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
+import { HiOutlineHeart } from "react-icons/hi";
 import ProductImageSlider from "./ProductImageSlider";
+import Swal from "sweetalert2";
 import {
   addToWishlist,
   removeFromWishlist,
@@ -16,27 +17,62 @@ import {
 
 function ProductDetails({ product }) {
   const dispatch = useDispatch();
-  const currentQuantity = useSelector(getCurrentQuantityById(product.id));
   const inWishlist = useSelector(isProductInWishlist(product.id));
+  const currentQuantity = useSelector(getCurrentQuantityById(product.id));
+
+  const priceAfterDiscount = (
+    Number(product.price) -
+    (Number(product.price) * Number(product.discountPercentage)) / 100
+  ).toFixed(2);
+
+  function handleAddToCart() {
+    const newProduct = {
+      ...product,
+      quantity: 1,
+      totalPrice: 1 * Number(product.price),
+    };
+    dispatch(addToCart(newProduct));
+  }
+
+  function handleRemoveFromCart() {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(removeFromCart(product.id));
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your product has been deleted.",
+          icon: "success",
+        });
+      }
+    });
+  }
 
   return (
-    <div className="px-4 py-6 md:px-12 lg:px-24">
+    <div className="px-24 py-6">
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-gray-800">{product.title}</h1>
         <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-blue-500"></div>
       </div>
 
-      <div className="flex flex-col gap-8 md:flex-row">
-        <div className="w-1/2 flex-1">
+      <div className="flex gap-8">
+        <div className="w-1/2">
           <ProductImageSlider images={product.images} />
         </div>
 
         <div className="relative flex flex-1 flex-col gap-4">
           <p className="text-gray-700">{product.description}</p>
 
-          <div className="flex items-center gap-4 text-2xl font-bold text-blue-600">
-            ${product.price}
-            {product.discount && (
+          <div className="flex items-center gap-4 text-2xl font-bold text-green-600">
+            ${priceAfterDiscount}
+            {Number(product.discountPercentage) > 0 && (
               <span className="text-xl text-gray-400 line-through">
                 ${product.price}
               </span>
@@ -48,7 +84,7 @@ function ProductDetails({ product }) {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => dispatch(decreaseQuantity(product.id))}
-                  className="rounded bg-gray-200 px-3 py-1 text-gray-700 transition hover:bg-gray-300"
+                  className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-gray-700 transition hover:bg-gray-300"
                 >
                   -
                 </button>
@@ -57,7 +93,7 @@ function ProductDetails({ product }) {
                 </span>
                 <button
                   onClick={() => dispatch(increaseQuantity(product.id))}
-                  className="rounded bg-gray-200 px-3 py-1 text-gray-700 transition hover:bg-gray-300"
+                  className="cursor-pointer rounded bg-gray-200 px-3 py-1 text-gray-700 transition hover:bg-gray-300"
                 >
                   +
                 </button>
@@ -67,7 +103,7 @@ function ProductDetails({ product }) {
             {inWishlist ? (
               <button
                 onClick={() => dispatch(removeFromWishlist(product.id))}
-                className="top-2 right-2 flex items-center justify-center rounded-full bg-white p-2 shadow-md transition-transform duration-200 hover:scale-110 hover:bg-pink-100"
+                className="top-2 right-2 flex cursor-pointer items-center justify-center rounded-full bg-white p-2 shadow-md transition-transform duration-200 hover:scale-110 hover:bg-pink-100"
               >
                 <HiOutlineHeart
                   size={22}
@@ -77,7 +113,7 @@ function ProductDetails({ product }) {
             ) : (
               <button
                 onClick={() => dispatch(addToWishlist(product))}
-                className="top-2 right-2 flex items-center justify-center rounded-full bg-white p-2 shadow-md transition-transform duration-200 hover:scale-110 hover:bg-pink-100"
+                className="top-2 right-2 flex cursor-pointer items-center justify-center rounded-full bg-white p-2 shadow-md transition-transform duration-200 hover:scale-110 hover:bg-pink-100"
               >
                 <HiOutlineHeart
                   size={22}
@@ -89,9 +125,9 @@ function ProductDetails({ product }) {
 
           <div className="mt-6 flex flex-col gap-3">
             <button
-              onClick={() => dispatch(addToCart({ ...product, quantity: 1 }))}
+              onClick={handleAddToCart}
               disabled={currentQuantity > 0}
-              className={`w-full rounded-xl py-3 font-medium text-white shadow-md transition-all duration-200 ${
+              className={`w-full cursor-pointer rounded-xl py-3 font-medium text-white shadow-md transition-all duration-200 ${
                 currentQuantity > 0
                   ? "cursor-not-allowed bg-gray-400"
                   : "bg-blue-600 hover:bg-blue-700"
@@ -102,8 +138,8 @@ function ProductDetails({ product }) {
 
             {currentQuantity > 0 && (
               <button
-                onClick={() => dispatch(removeFromCart(product.id))}
-                className="w-full rounded-xl bg-red-500 py-3 font-medium text-white shadow-md transition-all duration-200 hover:bg-red-600"
+                onClick={handleRemoveFromCart}
+                className="w-full cursor-pointer rounded-xl bg-red-500 py-3 font-medium text-white shadow-md transition-all duration-200 hover:bg-red-600"
               >
                 Remove from Cart
               </button>

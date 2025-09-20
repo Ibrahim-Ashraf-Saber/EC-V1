@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { loadState, saveState } from "./utils/helpers";
 import productsReducer from "./features/products/productsSlice";
 import categoriesReducer from "./features/categories/categoriesSlice";
 import cartReducer from "./features/cart/cartSlice";
 import wishlistReducer from "./features/wishlist/wishlistSlice";
-import { loadState, saveState } from "./utils/helpers";
 
 const persistedCart = loadState("cart");
 const persistedWishlist = loadState("wishlist");

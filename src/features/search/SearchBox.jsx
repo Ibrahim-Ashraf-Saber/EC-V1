@@ -52,14 +52,14 @@ function SearchBox() {
     <form
       ref={wrapperRef}
       onSubmit={handleSubmit}
-      className="relative flex items-center rounded-full bg-white shadow-sm ring-1 ring-gray-200 transition-all focus-within:ring-2 focus-within:ring-blue-400 dark:bg-gray-800 dark:ring-gray-700 dark:focus-within:ring-blue-500"
+      className="relative flex w-full items-center rounded-full bg-white shadow-sm ring-1 ring-gray-200 transition-all focus-within:ring-2 focus-within:ring-blue-400 md:w-auto dark:bg-gray-800 dark:ring-gray-700 dark:focus-within:ring-blue-500"
     >
       <input
         type="text"
         value={query}
         onChange={handleChange}
         placeholder="Search for product..."
-        className="w-72 bg-transparent px-4 py-2 text-gray-700 placeholder-gray-400 transition-all outline-none focus:w-80 focus:placeholder-gray-300 dark:text-gray-200 dark:placeholder-gray-500 dark:focus:placeholder-gray-400"
+        className="w-full bg-transparent px-4 py-2 text-gray-700 placeholder-gray-400 transition-all outline-none focus:placeholder-gray-300 md:w-72 md:focus:w-80 dark:text-gray-200 dark:placeholder-gray-500 dark:focus:placeholder-gray-400"
       />
       <button
         type="submit"
@@ -67,6 +67,7 @@ function SearchBox() {
       >
         <HiOutlineSearch className="text-white" size={20} />
       </button>
+
       {showSuggestions && !isLoading && searchSuggestions?.length > 0 && (
         <SearchSuggestions searchSuggestions={searchSuggestions} />
       )}

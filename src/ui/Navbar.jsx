@@ -4,7 +4,7 @@ import SearchBox from "../features/search/SearchBox";
 
 function Navbar() {
   return (
-    <nav className="fixed z-40 flex w-full items-center justify-between border-b border-gray-100 bg-white px-20 py-5 shadow-sm dark:border-gray-700 dark:bg-gray-900">
+    <nav className="fixed z-30 flex w-full items-center justify-between gap-5 border-b border-gray-100 bg-white px-5 py-5 shadow-sm md:px-20 dark:border-gray-700 dark:bg-gray-900">
       <Logo />
       <SearchBox />
       <NavIcons />

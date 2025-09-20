@@ -3,7 +3,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 
 function Logo() {
   return (
-    <Link to="/" className="flex items-center gap-3">
+    <Link to="/" className="hidden items-center gap-3 md:flex">
       <div className="w-fit rotate-6 rounded-xl bg-gradient-to-tr from-blue-500 to-blue-600 p-2 shadow-md">
         <MdOutlineShoppingCart color="white" size={22} className="-rotate-6" />
       </div>

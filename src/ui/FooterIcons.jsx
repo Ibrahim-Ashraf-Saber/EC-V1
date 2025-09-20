@@ -10,13 +10,13 @@ import {
   HiMoon,
 } from "react-icons/hi";
 
-function NavIcons() {
+function FooterIcons() {
   const { darkMode, setDarkMode } = useDarkMode();
   const cartQuantity = useSelector(getTotalCartQuantity);
   const wishQuantity = useSelector(getTotalWishlistQuantity);
 
   return (
-    <div className="hidden items-center gap-6 md:flex">
+    <>
       <Link
         to="/cart"
         className="group relative cursor-pointer rounded-full p-2 transition-all hover:scale-105 hover:bg-blue-100 dark:hover:bg-blue-900"
@@ -56,8 +56,8 @@ function NavIcons() {
           />
         )}
       </button>
-    </div>
+    </>
   );
 }
 
-export default NavIcons;
+export default FooterIcons;

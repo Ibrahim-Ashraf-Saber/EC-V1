@@ -37,7 +37,7 @@ function Cart() {
   if (cartItems.length === 0) return <EmptyCart />;
 
   return (
-    <div className="px-24 py-6">
+    <div className="md:px-24 md:py-6">
       <div className="mb-8 text-center">
         <h2 className="mb-2 text-4xl font-bold text-gray-800 dark:text-gray-100">
           Your Cart
@@ -59,13 +59,13 @@ function Cart() {
           <span className="text-gray-800 dark:text-gray-200">Total</span>
           <span className="text-green-500">${totalPrice.toFixed(2)}</span>
         </div>
-        <div className="flex w-2xl items-center gap-7">
-          <button className="w-md cursor-pointer rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-md transition-all hover:scale-105 hover:bg-blue-700">
+        <div className="flex w-full flex-col items-center gap-7 md:w-2xl md:flex-row">
+          <button className="w-full cursor-pointer rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-md transition-all hover:scale-105 hover:bg-blue-700 md:w-md">
             Checkout
           </button>
           <button
             onClick={hanldeClearCart}
-            className="w-md cursor-pointer rounded-xl bg-red-600 px-6 py-3 font-semibold text-white shadow-md transition-all hover:scale-105 hover:bg-red-700"
+            className="w-full cursor-pointer rounded-xl bg-red-600 px-6 py-3 font-semibold text-white shadow-md transition-all hover:scale-105 hover:bg-red-700 md:w-md"
           >
             Clear cart
           </button>

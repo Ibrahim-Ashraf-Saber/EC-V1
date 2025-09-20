@@ -34,7 +34,7 @@ function CartItem({ item }) {
   return (
     <div
       key={item.id}
-      className="flex flex-row items-center justify-between gap-4 rounded-xl bg-white p-4 shadow-md dark:bg-gray-800"
+      className="flex w-full flex-col items-center gap-4 rounded-xl bg-white p-4 shadow-md md:flex-row md:justify-between dark:bg-gray-800"
     >
       <img
         src={item.images[0]}
@@ -43,7 +43,7 @@ function CartItem({ item }) {
         className="h-24 w-24 rounded-md object-contain"
       />
 
-      <div className="ml-6 flex flex-1 flex-col gap-2">
+      <div className="flex flex-1 flex-col items-center justify-center gap-2 md:ml-6 md:items-start">
         <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
           {item.title}
         </h2>

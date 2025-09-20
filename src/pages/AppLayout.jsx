@@ -13,7 +13,7 @@ function AppLayout() {
   return (
     <div className="flex min-h-dvh flex-col">
       <Navbar />
-      <main className="flex-1 bg-gray-50 px-5 py-5 pt-32 md:px-20 dark:bg-gray-950">
+      <main className="flex-1 bg-gray-50 px-5 pt-32 pb-20 md:px-20 md:pb-5 dark:bg-gray-950">
         <Outlet />
       </main>
       <Footer />

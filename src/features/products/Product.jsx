@@ -59,7 +59,7 @@ function ProductDetails({ product }) {
   }
 
   return (
-    <div className="px-24 py-6">
+    <div className="md:px-24 md:py-6">
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100">
           {product.title}
@@ -67,8 +67,8 @@ function ProductDetails({ product }) {
         <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-blue-500"></div>
       </div>
 
-      <div className="flex gap-8">
-        <div className="w-1/2">
+      <div className="flex flex-col gap-8 md:flex-row">
+        <div className="w-full md:w-1/2">
           <ProductImageSlider images={product.images} />
         </div>
 

@@ -1,21 +1,21 @@
 import { useEffect, useRef, useState } from "react";
-import { HiOutlineSearch } from "react-icons/hi";
 import { useLocation, useNavigate } from "react-router-dom";
-import SearchSuggestions from "./SearchSuggestions";
 import { useDispatch, useSelector } from "react-redux";
 import { suggestProducts } from "../products/productsSlice";
+import { HiOutlineSearch } from "react-icons/hi";
+import SearchSuggestions from "./SearchSuggestions";
 
 function SearchBox() {
   const [query, setQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const wrapperRef = useRef(null);
-  const { suggestionsProducts, searchStatus } = useSelector(
+  const { searchSuggestions, searchStatus } = useSelector(
     (state) => state.products,
   );
   const isLoading = searchStatus === "loading";
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+  const wrapperRef = useRef(null);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -25,9 +25,8 @@ function SearchBox() {
   }
 
   const handleChange = (e) => {
-    const value = e.target.value;
-    setQuery(value);
-    setShowSuggestions(value.length > 0);
+    setQuery(e.target.value);
+    setShowSuggestions(e.target.value.length > 0);
   };
 
   useEffect(() => {
@@ -46,7 +45,7 @@ function SearchBox() {
   }, [location]);
 
   useEffect(() => {
-    dispatch(suggestProducts(query));
+    dispatch(suggestProducts(query.trim()));
   }, [query, dispatch]);
 
   return (
@@ -68,8 +67,8 @@ function SearchBox() {
       >
         <HiOutlineSearch className="text-white" size={20} />
       </button>
-      {showSuggestions && !isLoading && suggestionsProducts.length > 0 && (
-        <SearchSuggestions suggestionsProducts={suggestionsProducts} />
+      {showSuggestions && !isLoading && searchSuggestions?.length > 0 && (
+        <SearchSuggestions searchSuggestions={searchSuggestions} />
       )}
     </form>
   );

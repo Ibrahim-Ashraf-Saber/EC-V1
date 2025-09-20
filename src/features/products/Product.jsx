@@ -14,6 +14,7 @@ import {
   increaseQuantity,
   removeFromCart,
 } from "../cart/cartSlice";
+import { toastAddToCart } from "../cart/ToastAddToCart";
 
 function ProductDetails({ product }) {
   const dispatch = useDispatch();
@@ -32,6 +33,8 @@ function ProductDetails({ product }) {
       totalPrice: 1 * Number(product.price),
     };
     dispatch(addToCart(newProduct));
+
+    toastAddToCart(newProduct);
   }
 
   function handleRemoveFromCart() {

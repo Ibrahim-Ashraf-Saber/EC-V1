@@ -7,6 +7,7 @@ import {
   removeFromWishlist,
   isProductInWishlist,
 } from "../wishlist/wishlistSlice";
+import { toastAddToCart } from "../cart/ToastAddToCart";
 
 function ProductItem({ product }) {
   const { id, title, description, price, rating, images, discountPercentage } =
@@ -35,6 +36,8 @@ function ProductItem({ product }) {
       totalPrice: 1 * Number(product.price),
     };
     dispatch(addToCart(newProduct));
+
+    toastAddToCart(newProduct);
   }
 
   return (

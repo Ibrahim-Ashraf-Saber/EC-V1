@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import emptyCartImg from "../../data/imgs/emptyCart.svg";
 import { HiArrowCircleLeft } from "react-icons/hi";
+import emptyCartImg from "../../data/imgs/emptyCart.svg";
 
 function EmptyCart() {
   return (
@@ -13,10 +13,10 @@ function EmptyCart() {
       />
 
       <section className="mt-6 space-y-3 text-center">
-        <h1 className="text-3xl font-extrabold tracking-wide text-blue-600 uppercase md:text-4xl">
+        <h1 className="text-4xl font-extrabold tracking-wide text-blue-600 uppercase">
           Your Cart is Empty
         </h1>
-        <p className="mx-auto text-sm font-medium text-gray-500 md:text-base">
+        <p className="mx-auto text-base font-medium text-gray-500">
           Start exploring our products and find something you love.
         </p>
       </section>

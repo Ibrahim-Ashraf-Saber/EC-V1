@@ -1,5 +1,5 @@
-import { HiOutlineTrash } from "react-icons/hi";
 import { useDispatch } from "react-redux";
+import { HiOutlineTrash } from "react-icons/hi";
 import {
   decreaseQuantity,
   increaseQuantity,
@@ -8,10 +8,15 @@ import {
 
 function CartItem({ item }) {
   const dispatch = useDispatch();
+
+  function handleRemoveFromCart() {
+    dispatch(removeFromCart(item.id));
+  }
+
   return (
     <div
       key={item.id}
-      className="flex flex-col items-center gap-4 rounded-xl bg-white p-4 shadow-md md:flex-row md:items-center md:justify-between"
+      className="flex flex-row items-center justify-between gap-4 rounded-xl bg-white p-4 shadow-md"
     >
       <img
         src={item.images[0]}
@@ -20,7 +25,7 @@ function CartItem({ item }) {
         className="h-24 w-24 rounded-md object-contain"
       />
 
-      <div className="flex flex-1 flex-col gap-2 md:ml-6">
+      <div className="ml-6 flex flex-1 flex-col gap-2">
         <h2 className="text-lg font-semibold text-gray-800">{item.title}</h2>
         <p className="font-medium text-gray-500">${item.price}</p>
 
@@ -42,7 +47,7 @@ function CartItem({ item }) {
       </div>
 
       <button
-        onClick={() => dispatch(removeFromCart(item.id))}
+        onClick={handleRemoveFromCart}
         className="mt-2 flex cursor-pointer items-center justify-center rounded-full p-2 text-red-500 transition hover:bg-red-100 hover:text-red-700 md:mt-0 md:ml-4"
       >
         <HiOutlineTrash size={20} />

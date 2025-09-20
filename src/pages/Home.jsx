@@ -7,12 +7,16 @@ import SkeletonSlider from "../ui/SkeletonSlider";
 
 function Home() {
   const dispatch = useDispatch();
-  const { productsByCategory, status } = useSelector((state) => state.products);
-  const isLoading = status === "loading";
+  const { productsByCategory, pByCategoryStatus } = useSelector(
+    (state) => state.products,
+  );
+  const isLoading = pByCategoryStatus === "loading";
 
   useEffect(() => {
     dispatch(getAllProductsByCategory());
   }, [dispatch]);
+
+  console.log(isLoading);
 
   return (
     <div>

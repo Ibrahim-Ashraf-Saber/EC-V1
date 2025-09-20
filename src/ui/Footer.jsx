@@ -13,7 +13,7 @@ function Footer() {
           Ibrahim Ashraf
         </a>
       </footer>
-      <div className="fixed bottom-0 left-0 z-40 flex w-full items-center justify-around gap-6 border-t border-gray-300 bg-white p-5 shadow-2xl md:hidden">
+      <div className="fixed bottom-0 left-0 z-40 flex w-full items-center justify-around gap-6 border-t border-gray-300 bg-white p-5 shadow-2xl md:hidden dark:border-gray-700 dark:bg-gray-900">
         <FooterIcons />
       </div>
     </>

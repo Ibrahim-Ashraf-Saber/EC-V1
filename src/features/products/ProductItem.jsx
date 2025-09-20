@@ -1,12 +1,12 @@
-import { HiOutlineHeart } from "react-icons/hi";
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { HiOutlineHeart } from "react-icons/hi";
+import { addToCart, getCurrentQuantityById } from "../cart/cartSlice";
 import {
   addToWishlist,
   removeFromWishlist,
   isProductInWishlist,
 } from "../wishlist/wishlistSlice";
-import { addToCart, getCurrentQuantityById } from "../cart/cartSlice";
 
 function ProductItem({ product }) {
   const { id, title, description, price, rating, images, discountPercentage } =
@@ -44,7 +44,7 @@ function ProductItem({ product }) {
     >
       <div className="relative rounded-2xl border border-gray-200 bg-gray-50 p-2">
         <img
-          src={images?.[0]}
+          src={images[0]}
           alt={title}
           loading="lazy"
           className="h-48 w-full rounded-xl object-contain transition-all group-hover:scale-110"
@@ -74,7 +74,7 @@ function ProductItem({ product }) {
 
         {Math.floor(discountPercentage) >= 10 && (
           <span className="absolute bottom-2 left-2 rounded-lg bg-red-500 px-2 py-1 text-xs font-bold text-white">
-            -{Math.floor(Number(discountPercentage))}%
+            -{Math.ceil(Number(discountPercentage))}%
           </span>
         )}
       </div>

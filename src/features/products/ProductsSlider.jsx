@@ -22,7 +22,7 @@ function ProductsSlider({ title, products }) {
       <div className="relative px-4 py-8">
         <Swiper
           className="drop-shadow-xl"
-          slidesPerView={1}
+          slidesPerView={4}
           spaceBetween={20}
           loop={true}
           navigation={{
@@ -30,18 +30,13 @@ function ProductsSlider({ title, products }) {
             prevEl: `.${prevBtnClass}`,
           }}
           modules={[Navigation]}
-          breakpoints={{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-            1280: { slidesPerView: 4 },
-          }}
         >
-          {(Array.isArray(products) ? products : []).map((product) => (
-            <SwiperSlide key={product.id}>
-              <ProductItem product={product} />
-            </SwiperSlide>
-          ))}
+          {Array.isArray(products) &&
+            products.map((product) => (
+              <SwiperSlide key={product.id}>
+                <ProductItem product={product} />
+              </SwiperSlide>
+            ))}
         </Swiper>
 
         <div className="mt-6 flex items-center justify-center gap-3">

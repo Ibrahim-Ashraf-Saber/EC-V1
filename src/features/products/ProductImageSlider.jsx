@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
-export default function ProductImageSlider({ images = [] }) {
+export default function ProductImageSlider({ images }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
@@ -23,7 +23,7 @@ export default function ProductImageSlider({ images = [] }) {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mb-4 rounded-xl shadow-md"
       >
-        {images.map((img, index) => (
+        {images?.map((img, index) => (
           <SwiperSlide key={index}>
             <img
               src={img}

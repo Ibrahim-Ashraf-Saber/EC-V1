@@ -38,7 +38,7 @@ function ProductDetails() {
       ) : (
         <ProductsSlider
           title="Related Products"
-          products={productsByCategory[product.category]}
+          products={productsByCategory}
         />
       )}
     </div>

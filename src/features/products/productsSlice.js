@@ -64,7 +64,7 @@ export const getProductsByCategory = createAsyncThunk(
       `https://dummyjson.com/products/category/${category}`,
     );
     const data = await res.json();
-    return { [category]: data.products };
+    return data.products;
   },
 );
 
@@ -138,10 +138,7 @@ const productsSlice = createSlice({
       })
       .addCase(getProductsByCategory.fulfilled, (state, action) => {
         state.pByCategoryStatus = "idle";
-        state.productsByCategory = {
-          ...state.productsByCategory,
-          ...action.payload,
-        };
+        state.productsByCategory = action.payload;
       })
       .addCase(getProductsByCategory.rejected, (state) => {
         state.pByCategoryStatus = "error";

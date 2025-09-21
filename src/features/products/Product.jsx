@@ -130,7 +130,7 @@ function ProductDetails({ product }) {
             )}
           </div>
 
-          <div className="mt-6 flex flex-col gap-3">
+          <div className="m-6 flex flex-col gap-3 md:mb-0">
             <button
               onClick={handleAddToCart}
               disabled={currentQuantity > 0}

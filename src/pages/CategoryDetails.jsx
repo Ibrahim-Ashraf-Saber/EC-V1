@@ -39,7 +39,7 @@ function CategoryDetails() {
 
   return (
     <div className="px-6 py-10">
-      <div className="mb-8 flex items-center justify-between gap-6">
+      <div className="mb-8 flex flex-col items-center justify-between gap-6 md:flex-row">
         <h2 className="text-3xl font-bold text-gray-800 capitalize dark:text-gray-100">
           {category.replace("-", " ")} Products
         </h2>

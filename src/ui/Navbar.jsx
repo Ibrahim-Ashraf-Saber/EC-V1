@@ -16,9 +16,13 @@ function Navbar() {
   return (
     <nav className="fixed z-30 flex w-full items-center justify-between gap-5 border-b border-gray-100 bg-white px-5 py-5 shadow-sm md:px-20 dark:border-gray-700 dark:bg-gray-900">
       <Logo />
+
+      {/* Search for Big Screens */}
       <div className="hidden md:block">
         <SearchBox />
       </div>
+
+      {/* Search for Mobile Screen */}
       <div className="block md:hidden">
         <button
           onClick={() => setShow((s) => !s)}
@@ -32,6 +36,7 @@ function Navbar() {
           </div>
         )}
       </div>
+
       <NavIcons />
     </nav>
   );

@@ -22,6 +22,32 @@ A modern e-commerce web application built with **React**, **Redux Toolkit**, **V
 
 ---
 
+## 🌐 Demo
+
+[Live Demo](https://ec-v1.vercel.app/)
+
+---
+
+## 🖼️ Screenshots
+
+<p align="center">
+  <img src="screenshots/1.png" alt="Home Page" width="700"/>
+</p>
+<p align="center">
+  <img src="screenshots/2.png" alt="Product Details" width="700"/>
+</p>
+<p align="center">
+  <img src="screenshots/3.png" alt="Shopping Cart" width="700"/>
+</p>
+<p align="center">
+  <img src="screenshots/4.png" alt="Shopping Cart" width="700"/>
+</p>
+<p align="center">
+  <img src="screenshots/5.png" alt="Shopping Cart" width="700"/>
+</p>
+
+---
+
 ## 🛠️ Tech Stack
 
 - [React](https://react.dev/)
